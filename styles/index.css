@@ -1,0 +1,18 @@
+/* Tailwind 入口：公共控件、工作区布局分开维护，编译后生成 web/styles.css。 */
+@import "tailwindcss";
+@import "./components.css";
+@import "./workspace.css";
+@import "./resources.css";
+@import "./service.css";
+@source "../web";
+@theme { --font-sans: Inter, "Segoe UI", "Microsoft YaHei", sans-serif; }
+@layer base {
+  body { @apply m-0 bg-zinc-50 font-sans text-sm text-zinc-800 antialiased; }
+  h1 { @apply text-2xl font-semibold tracking-tight text-zinc-950; }
+  h2 { @apply text-[15px] font-semibold text-zinc-900; }
+  p { @apply text-[13px] leading-6 text-zinc-500; }
+  a { @apply text-zinc-700 no-underline hover:text-zinc-950; }
+  button, input, select, textarea { font: inherit; }
+  [hidden] { display:none !important; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-zinc-400; }
+}

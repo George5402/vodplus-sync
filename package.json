@@ -1,0 +1,35 @@
+{
+  "name": "vodplus-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare 爬虫管理与人物数据同步平台",
+  "engines": {
+    "node": ">=22"
+  },
+  "cloudflare": {
+    "bindings": {
+      "DB": {
+        "description": "人物、设备、文件内容、版本及同步记录。仅需 D1，无需开通 R2；部署脚本自动初始化。"
+      }
+    }
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs",
+    "styles": "node scripts/styles.mjs",
+    "deploy": "node scripts/deploy.mjs",
+    "db:local": "wrangler d1 migrations apply DB --local",
+    "db:remote": "wrangler d1 migrations apply DB --remote"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.5",
+    "esbuild": "0.28.2",
+    "jsonc-parser": "3.3.1",
+    "miniflare": "4.20260730.0",
+    "tailwindcss": "4.3.5",
+    "wrangler": "4.162.0"
+  }
+}

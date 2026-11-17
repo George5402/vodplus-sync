@@ -1,0 +1,59 @@
+/* 统一表单、按钮、表格与弹窗；中性灰底，少量状态色。 */
+@layer components {
+  button, .button { @apply inline-flex min-h-9 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md border border-zinc-200 bg-white px-3 py-2 text-xs font-medium text-zinc-700 shadow-xs transition-colors hover:border-zinc-300 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-40; }
+  button.primary, .button.primary { @apply border-zinc-900 bg-zinc-900 text-white hover:border-zinc-700 hover:bg-zinc-700; }
+  .icon { @apply h-[18px] w-[18px] shrink-0; }
+  .danger { @apply text-red-600 hover:border-red-200 hover:bg-red-50; }
+  .text-button { @apply border-0 bg-transparent shadow-none; }
+  input, select, textarea { @apply min-w-0 rounded-md border border-zinc-200 bg-white px-3 py-2.5 text-[13px] text-zinc-800 shadow-xs placeholder:text-zinc-400 focus:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-100; }
+  label { @apply flex flex-col gap-2 text-xs font-medium text-zinc-700; }
+  small { @apply block text-[11px] font-normal leading-5 text-zinc-400; }
+  .muted { @apply text-xs text-zinc-400; }
+  .mono { @apply font-mono text-xs; }
+  .badge { @apply inline-flex items-center gap-1 rounded-md border border-zinc-200 bg-zinc-50 px-2 py-1 text-[10px] font-medium leading-none text-zinc-500; }
+  .badge.green { @apply border-sky-100 bg-sky-50 text-sky-700; }
+  .badge.red { @apply border-red-100 bg-red-50 text-red-700; }
+  .badge.amber { @apply border-amber-100 bg-amber-50 text-amber-700; }
+  .badge .icon { @apply h-3 w-3; }
+  .panel { @apply mb-6 overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-xs; }
+  .section-heading { @apply flex flex-wrap items-center justify-between gap-4 border-b border-zinc-100 px-5 py-4; }
+  .section-heading h2 { @apply flex items-center gap-2; }
+  .section-heading h2>span { @apply rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] font-normal text-zinc-500; }
+  .section-heading p { @apply mt-1 text-xs; }
+  .section-heading a { @apply inline-flex items-center gap-1 text-xs; }
+  .table-wrap { @apply overflow-auto; }
+  table { @apply w-full border-collapse whitespace-nowrap text-left; }
+  th { @apply border-b border-zinc-100 bg-zinc-50/70 px-5 py-3 text-[11px] font-medium text-zinc-500; }
+  td { @apply border-b border-zinc-100 px-5 py-4 text-xs text-zinc-600; }
+  td strong { @apply font-medium text-zinc-900; }
+  td small { @apply mt-1; }
+  tr:last-child td { @apply border-b-0; }
+  tbody tr { @apply transition-colors hover:bg-zinc-50/70; }
+  .actions { @apply flex flex-wrap items-center gap-2; }
+  td.actions { display:table-cell; }
+  td.actions button, td.actions .button { @apply mr-1.5; }
+  .actions button, .actions .button { @apply min-h-8 px-2.5 py-1.5 text-[11px]; }
+  .avatar { @apply inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-100 text-xs font-medium text-zinc-600; }
+  .person { @apply flex items-center gap-3; }
+  .empty { @apply flex min-h-56 flex-col items-center justify-center gap-2 px-6 py-10 text-center; }
+  .empty-mark { @apply mb-3 flex h-11 w-11 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-400; }
+  .empty strong { @apply text-sm font-medium text-zinc-700; }
+  .empty p { @apply max-w-sm text-xs; }
+  .loading { @apply p-10 text-sm text-zinc-400; }
+  .error-text { @apply text-xs text-red-600; }
+  dialog { @apply m-auto w-[480px] max-w-[calc(100vw-32px)] overflow-hidden rounded-xl border border-zinc-200 bg-white p-0 text-zinc-800 shadow-2xl; }
+  dialog::backdrop { background:rgb(24 24 27 / .35); }
+  .dialog-heading { @apply flex items-center justify-between border-b border-zinc-100 px-6 py-5; }
+  .dialog-heading h2 { @apply text-base; }
+  .icon-button { @apply h-7 min-h-7 w-7 border-0 bg-transparent p-0 text-lg text-zinc-400 shadow-none hover:bg-zinc-100; }
+  .dialog-body { @apply flex max-h-[65vh] flex-col gap-5 overflow-auto px-6 py-5; }
+  .dialog-body input, .dialog-body select { @apply w-full; }
+  .dialog-body textarea { @apply w-full font-mono text-xs; }
+  .dialog-description { @apply -mt-1 mb-1 text-xs leading-5; }
+  .dialog-footer { @apply flex justify-end gap-2 border-t border-zinc-100 bg-zinc-50/60 px-6 py-4; }
+  .dialog-error { @apply mx-6 mb-4 rounded-md border border-red-100 bg-red-50 p-3 text-xs text-red-600; }
+  .account-danger { @apply space-y-3 border-t border-zinc-200 pt-5; }.account-danger strong { @apply text-sm text-red-700; }
+  #toast { @apply pointer-events-none fixed bottom-7 left-1/2 z-50 max-w-[90vw] -translate-x-1/2 translate-y-3 rounded-lg bg-zinc-900 px-5 py-3 text-xs text-white opacity-0 shadow-lg transition-all; }
+  #toast.show { @apply translate-y-0 opacity-100; }
+  #toast.error { @apply bg-red-800; }
+}

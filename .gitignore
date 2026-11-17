@@ -1,0 +1,10 @@
+# 本地凭证、依赖及构建缓存不进入仓库。
+node_modules/
+.wrangler/
+.wrangler-deploy-*.json
+.dev.vars*
+.env*
+dist/
+coverage/
+*.log
+test-results/

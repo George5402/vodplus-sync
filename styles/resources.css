@@ -1,0 +1,45 @@
+/* 文件列表和弹窗编辑，宽屏行内操作、窄屏下拉菜单。 */
+@layer components {
+ .resource-toolbar { @apply flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 p-4; }
+ .resource-toolbar input { @apply w-64 max-w-full text-xs; }
+ .resource-toolbar>div { @apply flex flex-wrap gap-2; }
+ .resource-toolbar select { @apply min-h-9 text-xs; }
+ .file-type-icon { @apply h-6 w-6 shrink-0 object-contain; }
+ #new-dir .file-type-icon { @apply h-[18px] w-[18px]; }
+ .resource-table { @apply table-fixed; }
+ .resource-table .name-col { width:auto; }.resource-table .size-col { width:110px; }.resource-table .date-col { width:150px; }.resource-table .state-col { width:80px; }.resource-table .action-col { width:450px; }
+ .resource-name { @apply flex min-w-0 items-center gap-2; }
+ .resource-title { @apply min-w-0 justify-start truncate border-0 bg-transparent p-0 text-left text-xs font-medium shadow-none hover:bg-transparent hover:underline; }
+ .resource-name>.icon { @apply text-zinc-400; }
+ .resource-toggle { @apply h-6 min-h-6 w-6 shrink-0 p-0 text-sm; }
+ .row-actions { @apply flex flex-wrap gap-1; }.row-actions button,.row-actions .button { @apply min-h-7 px-2 py-1 text-[10px]; }
+ .row-summary { @apply hidden; }
+ .resource-menu { @apply relative hidden; }
+ .resource-menu summary { @apply inline-flex cursor-pointer rounded-md border border-zinc-200 bg-white px-3 py-2 text-xs; list-style:none; }
+ .resource-menu summary::-webkit-details-marker { display:none; }
+ .resource-menu-list { @apply absolute right-0 z-30 mt-1 flex min-w-36 flex-col rounded-lg border border-zinc-200 bg-white p-1 shadow-lg; }
+ .resource-menu-list button,.resource-menu-list .button { @apply justify-start border-0 shadow-none; }
+ .resource-footer { @apply border-t border-zinc-100 px-5 py-3 text-xs text-zinc-400; }
+ .drop-hint { @apply pointer-events-none fixed inset-5 z-40 flex items-center justify-center rounded-xl border-2 border-dashed border-zinc-500 bg-white/95 text-lg font-medium text-zinc-700; }
+ dialog.editor-modal { @apply w-[960px]; }.editor-modal .dialog-body { @apply max-h-[70vh] p-0; }
+ .editor-modal .code { @apply min-h-[48vh]; }.editor-modal .editor-meta { @apply flex items-center justify-between gap-3 border-b border-zinc-100 px-6 py-3 text-xs text-zinc-500; }
+ .upload-list { @apply max-h-64 overflow-auto rounded-md border border-zinc-200; }
+ .upload-row { @apply flex items-center justify-between gap-3 border-b border-zinc-100 px-3 py-3 text-xs last:border-0; }
+ .upload-row>div { @apply min-w-0; }.upload-row strong { @apply block break-all font-medium; }.upload-row small { @apply break-all; }
+ .upload-row>span { @apply shrink-0 text-[11px] text-zinc-500; }
+ .upload-progress { @apply w-full accent-zinc-800; }
+  dialog.upload-modal { @apply w-[620px]; }
+  .resource-panel { overflow:visible; }.resource-table-wrap { overflow:visible; }
+  dialog.device-config-modal { @apply w-[880px]; }
+  .device-config-labels { @apply grid grid-cols-2 gap-4 text-xs text-zinc-400; }
+  .device-config-field h3 { @apply mb-2 text-xs font-medium; }
+  .device-config-field>div { @apply grid grid-cols-2 gap-4; }
+  .device-config-field input { @apply w-full; }
+  .device-config-field input[readonly] { @apply bg-zinc-50 text-zinc-500; }
+  .device-config-input { @apply flex min-w-0 gap-2; }.device-config-input button { @apply px-2 text-[10px]; }
+}
+@media(max-width:1350px){.resource-table .date-col{display:none}.resource-table .action-col{width:390px}.resource-table .date-cell{display:none}.row-actions button,.row-actions .button{font-size:9px}}
+@media(max-width:1100px){.row-actions{display:none}.resource-menu{display:block}.resource-table .action-col{width:90px}.resource-table .size-col{width:110px}.resource-table .state-col{width:70px}}
+@media(max-width:700px){.resource-table .size-col,.resource-table .state-col,.resource-table .size-cell,.resource-table .state-cell{display:none}.row-summary{display:block}.resource-toolbar input{width:100%}.resource-toolbar>div{width:100%}.resource-title{font-size:12px}.resource-name{gap:6px}dialog.editor-modal{max-width:calc(100vw - 16px)}.editor-modal .editor-meta{padding:12px}.editor-modal .code{padding:12px}.resource-table td{padding-left:12px;padding-right:12px}}
+@media(max-width:700px){.device-config-labels{display:none}.device-config-field>div{grid-template-columns:minmax(0,1fr);gap:8px}.device-config-modal .dialog-footer{flex-wrap:wrap}}
+@media(max-width:700px){.resource-filter-tools select{width:100%}.resource-name .file-type-icon{width:22px;height:22px}}

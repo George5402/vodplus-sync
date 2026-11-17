@@ -1,0 +1,16 @@
+/* 服务维护页面，危险操作集中呈现，与日常文件操作分开。 */
+@layer components {
+  .reset-panel { @apply max-w-3xl; }
+  .reset-content { @apply space-y-6 p-6; }
+  .reset-content ul { @apply divide-y divide-zinc-100 rounded-lg border border-zinc-200; }
+  .reset-content li { @apply flex flex-col gap-1 px-4 py-4; }
+  .reset-content li strong { @apply text-sm font-medium; }
+  .reset-content li span { @apply text-xs leading-6 text-zinc-500; }
+  .reset-warning { @apply rounded-lg border border-red-100 bg-red-50 px-4 py-3 text-xs leading-6 text-red-700; }
+  .reset-action { @apply border-red-700 bg-red-700 text-white hover:border-red-800 hover:bg-red-800; }
+}
+@media(max-width:700px){
+  .sidebar nav { display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px; }
+  .sidebar nav a { min-width:0;flex-direction:column;gap:4px;padding:8px 0;text-align:center; }
+  .reset-content { padding:18px; }.reset-action { width:100%; }
+}
